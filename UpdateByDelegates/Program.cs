@@ -17,14 +17,13 @@ namespace SimpleLINQ
         public int Score { get; private set; }
         public int Age { get; private set; }
         public bool Accepted { get; set; }
-
         public override string ToString()
         {
             return $"Name={Name}, Score={Score}, Age={Age}, Accepted={Accepted}";
         }
     }
 
-    public static class Extension
+    public static class Program
     {
         public static void UpdatePeople(this List<Person> list, Predicate<Person> predicate, Action<Person> action)
         {
@@ -32,10 +31,7 @@ namespace SimpleLINQ
                 if (predicate(p))
                     action(p);
         }
-    }
 
-    class Program
-    {
         private static void Main()
         {
             List<Person> people = GetPeople();
